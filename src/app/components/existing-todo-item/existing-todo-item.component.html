@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header edit-container-wrapper" id="{{ 'heading' + item.id }}">
     <h5 class="mb-0">
-      <button
+      <button *ngIf="!isEditClicked"
         class="btn btn-link"
         type="button"
         data-toggle="collapse"
@@ -9,13 +9,23 @@
       >
         {{ item.title }}
       </button>
+      <input type="text" *ngIf="isEditClicked" value="{{ item.title }}"/>
     </h5>
     <div class="edit-container">
-      <div class="icon">
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <div class="icon" *ngIf="isEditClicked">  
+        <button (click)="saveItem()" class="icon-btn">
+          <i class="fa fa-check-square-o" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="icon" *ngIf="!isEditClicked">
+        <button (click)="editItem()" class="icon-btn">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </button>
       </div>
      <div class="icon">
+       <button (click)="deleteItem()" class="icon-btn">
         <i class="fa fa-trash" aria-hidden="true"></i>
+       </button>
      </div>
     </div>
   </div>
