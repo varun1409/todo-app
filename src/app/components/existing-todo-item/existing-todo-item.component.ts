@@ -8,6 +8,7 @@ import { List } from '../../models/list.model';
 })
 export class ExistingTodoItemComponent implements OnInit {
   @Input() item: List;
+
   constructor() {}
 
   ngOnInit(): void {}

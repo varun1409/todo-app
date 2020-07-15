@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header" id="{{ 'heading' + item.id }}">
+  <div class="card-header edit-container-wrapper" id="{{ 'heading' + item.id }}">
     <h5 class="mb-0">
       <button
         class="btn btn-link"
@@ -10,6 +10,14 @@
         {{ item.title }}
       </button>
     </h5>
+    <div class="edit-container">
+      <div class="icon">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      </div>
+     <div class="icon">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+     </div>
+    </div>
   </div>
 
   <div
