@@ -1,42 +1,58 @@
-<div class="card">
-  <div class="card-header edit-container-wrapper" id="{{ 'heading' + item.id }}">
-    <h5 class="mb-0">
-      <button *ngIf="!isEditClicked"
-        class="btn btn-link"
-        type="button"
-        data-toggle="collapse"
-        [attr.data-target]="'#collapse' + item.id"
-      >
-        {{ item.title }}
-      </button>
-      <input type="text" *ngIf="isEditClicked" value="{{ item.title }}"/>
-    </h5>
-    <div class="edit-container">
-      <div class="icon" *ngIf="isEditClicked">  
-        <button (click)="saveItem()" class="icon-btn">
-          <i class="fa fa-check-square-o" aria-hidden="true"></i>
+<div class="container">
+  <div class="card">
+    <div
+      class="card-header edit-container-wrapper"
+      id="{{ 'heading' + item.id }}"
+    >
+      <h5 class="mb-0">
+        <button
+          *ngIf="!isEditClicked"
+          class="btn btn-link"
+          type="button"
+          data-toggle="collapse"
+          [attr.data-target]="'#collapse' + item.id"
+        >
+          {{ item.title }}
         </button>
+        <input type="text" *ngIf="isEditClicked" [(ngModel)]="item.title" value="{{ item.title }}" />
+      </h5>
+      <div class="edit-container">
+        <div class="icon" *ngIf="isEditClicked">
+          <button (click)="saveItem()" class="icon-btn">
+            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="icon" *ngIf="!isEditClicked">
+          <button (click)="editItem()" class="icon-btn">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="icon">
+          <button (click)="deleteItem()" class="icon-btn">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
-      <div class="icon" *ngIf="!isEditClicked">
-        <button (click)="editItem()" class="icon-btn">
-          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        </button>
-      </div>
-     <div class="icon">
-       <button (click)="deleteItem()" class="icon-btn">
-        <i class="fa fa-trash" aria-hidden="true"></i>
-       </button>
-     </div>
     </div>
-  </div>
-
-  <div
-    id="{{ 'collapse' + item.id }}"
-    class="collapse show"
-    data-parent="#accordionExample"
-  >
-    <div class="card-body">
-      {{ item.description }}
+  
+    <div
+      id="{{ 'collapse' + item.id }}"
+      class="collapse show"
+      data-parent="#accordionExample"
+    >
+      <div class="card-body" *ngIf="!isEditClicked">
+        {{ item.description }}
+      </div>
+      <textarea
+        rows="10"
+        *ngIf="isEditClicked"
+        maxLength="500"
+        type="text"
+        class="form-control"
+        id="description"
+        placeholder="Description"
+        [(ngModel)]="item.description"
+      ></textarea>
     </div>
   </div>
 </div>

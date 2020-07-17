@@ -29,4 +29,8 @@ export class ExistingTodoItemComponent implements OnInit {
     console.log('Delete Item clicked');
     console.log('id', this.item.id);
   }
+
+  saveItem() {
+    console.log('Item', this.item);
+  }
 }
