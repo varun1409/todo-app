@@ -8,7 +8,29 @@ import { List } from '../../models/list.model';
 })
 export class ExistingTodoItemComponent implements OnInit {
   @Input() item: List;
+
+  _isEditClicked = false;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  editItem() {
+    console.log('Edit Item clicked');
+    console.log('id', this.item.id);
+    this._isEditClicked = true;
+  }
+
+  get isEditClicked() {
+    return this._isEditClicked;
+  }
+
+  deleteItem() {
+    console.log('Delete Item clicked');
+    console.log('id', this.item.id);
+  }
+
+  saveItem() {
+    console.log('Item', this.item);
+  }
 }

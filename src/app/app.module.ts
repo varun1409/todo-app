@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { ExistingTodoComponent } from './components/existing-todo/existing-todo.component';
 import { ExistingTodoItemComponent } from './components/existing-todo-item/existing-todo-item.component';
@@ -16,7 +18,8 @@ import { ExistingTodoItemComponent } from './components/existing-todo-item/exist
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
