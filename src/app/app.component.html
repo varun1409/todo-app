@@ -15,10 +15,10 @@
   </ul>
   <div class="tab-content" id="homePageTabsContent">
     <div class="tab-pane fade show active" id="new-md" role="tabpanel" aria-labelledby="new-tab-md">
-      <app-add-todo></app-add-todo>
+      <app-add-todo (itemCreated)="saveItemCreated($event);"></app-add-todo>
     </div>
     <div class="tab-pane fade" id="existing-md" role="tabpanel" aria-labelledby="existing-tab-md">
-      <app-existing-todo></app-existing-todo>
+      <app-existing-todo [item]="item2"></app-existing-todo>
     </div>
   </div>
 </div>
